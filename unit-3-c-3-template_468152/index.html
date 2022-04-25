@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Amount</title>
+    <style>
+      #grid{
+        display: flex;
+        
+      }
+      #grid>div{
+        border: 1px solid black;
+        height: 300px;
+        width: 300px;
+        margin: auto;
+        text-align: center;
+      }
+      span{
+        color: brown;
+        font-size: 25px;
+      }
+      #book_movies>a{
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grid">
+    <div id="navbar">
+      <h1>Add Money to wallet</h1>
+        <input type="number" name="" id="addwallet" placeholder="add money"/>
+        <button id="add" onclick="addmoney()">add</button>
+      <h1>wallet</h1>
+        <h1 id="wallet"></h1>
+      <!-- Display the wallet amount here inside h1 tag with id as "wallet". Note only amount, no extra text. Like 500 not Rs 500 -->
+    </div>
+    <div id="add-money">
+
+      <h3 id="wallet"></h3>
+      <button id="amount" onclick="accepted()" >accepting money</button> <br/> <span id="span" ></span>
+      <!-- input box for accepting money with id as "amount" -->
+      <button id="add" onclick="walletmoney()">add to wallet</button>
+      <!-- button with id as "add_to_wallet" -->
+      <button id="book_movies"><a href="movies.html">book movies</a></button>
+      <!-- button with id as "book_movies" to go to movies.html -->
+      
+    </div>
+  </div>
+  </body>
+</html>
+<script>
+
+ 
+function addmoney(){
+  event.preventDefault();
+  let addwallet=document.getElementById("addwallet").value;
+  let sum=0;
+  sum=sum+Number(addwallet);
+  localStorage.setItem("cash",JSON.stringify(sum))
+
+
+let money=document.createElement("h3")
+money.innerText=sum
+
+
+let wallet=document.getElementById("wallet")
+wallet.append(money)
+}
+
+
+function accepted(){
+  let span=document.getElementById("span")
+  span.innerText="money is accepted"
+}
+function walletmoney(){
+ 
+}
+</script>
